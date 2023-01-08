@@ -23,14 +23,11 @@ app.get('/', (req, res) => {
 
 //connecting database
 const port = 4000;
-// const connection_string = `mongodb+srv://testUser:testUser@cluster0.3bxlo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+const connection_string = `mongodb+srv://testUser:testUser@cluster0.3bxlo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 mongoose
-	.connect(process.env.CONNECTION_STRING)
+	.connect(connection_string)
 	.then(() =>
 		app.listen(port, () => console.log(`Server is running on port ${port}`))
 	)
 	.catch((err) => console.log(err.message));
-
-// Export the Express API
-module.exports = app;
